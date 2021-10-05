@@ -27,7 +27,7 @@ const functionCreateTask = () => new Promise((resolve, reject) => {
 
 const functionResult = (task) => new Promise((resolve, reject) => {
     const bodys = {
-        "clientKey":"3ce12fbabc8d18f560abd2416b04be2e",
+        "clientKey":"",
         "taskId": task
      } 
    
