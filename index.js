@@ -57,7 +57,7 @@ const functionRegist = (resCaptcha) => new Promise((resolve, reject) => {
         twitterHandle: "kautsar908"
      } 
 
-    fetch(`https://ssi.hypermine.in/whitelist/api/v1/investor?rcToken=${resCaptcha}`, {
+    fetch(`https://ssi.hypermine.in/whitelist/api/v1/investor?rcToken=${resCaptcha}&referrer=tyomalkafern@mailboxvip.com`, {
         method: "POST",
         body: JSON.stringify(bodys),
         headers: {
