@@ -3,9 +3,9 @@ var random = require('random-name');
 const chalk = require('chalk');
 const moment = require('moment');
 
-const functionCreateTask = () => new Promise((resolve, reject) => {
+const functionCreateTask = (key) => new Promise((resolve, reject) => {
     const bodys = {
-        "clientKey":"",
+        "clientKey":key,
         "task":
         {
             "type":"RecaptchaV2TaskProxyless",
@@ -25,9 +25,9 @@ const functionCreateTask = () => new Promise((resolve, reject) => {
        .catch(err => reject(err))
 });
 
-const functionResult = (task) => new Promise((resolve, reject) => {
+const functionResult = (task, key) => new Promise((resolve, reject) => {
     const bodys = {
-        "clientKey":"",
+        "clientKey":key,
         "taskId": task
      } 
    
@@ -87,11 +87,17 @@ const functionRegist = (resCaptcha) => new Promise((resolve, reject) => {
 
 (async () => {
 
-    
+    const key = ""
 
     try {
 
         for (var i = 0; i < 100; i++){
+            
+            if(!key){
+                console.log(chalk.yellow(`[${(moment().format('HH:mm:ss'))}] Get your client key https://anti-captcha.com/ !`))
+                break;
+            }
+            
             console.log(chalk.yellow(`[${(moment().format('HH:mm:ss'))}] Wait for captcha...`))
 
             const getTask = await functionCreateTask()
