@@ -100,10 +100,10 @@ const functionRegist = (resCaptcha) => new Promise((resolve, reject) => {
             
             console.log(chalk.yellow(`[${(moment().format('HH:mm:ss'))}] Wait for captcha...`))
 
-            const getTask = await functionCreateTask()
+            const getTask = await functionCreateTask(key)
             const task = getTask.taskId
             do{
-                var getResult = await functionResult(task)
+                var getResult = await functionResult(task, key)
                 if(getResult.status != 'processing'){
                     console.log(chalk.green(`[${(moment().format('HH:mm:ss'))}] Captcha is ready`))
                 }
